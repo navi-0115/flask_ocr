@@ -1,0 +1,35 @@
+from marshmallow import Schema, fields
+
+class InvoiceSchema(Schema):
+    id = fields.Int()
+    row_id = fields.Str()
+    customer_name = fields.Str()
+    ship_to_address = fields.Str()
+    postal_code = fields.Str()
+    city = fields.Str()
+    state = fields.Str()
+    country = fields.Str()
+    invoice_number = fields.Str()
+    invoice_date = fields.Date()
+    ship_mode = fields.Str()
+    subtotal = fields.Decimal(as_string=True)
+    discount = fields.Decimal(as_string=True)
+    shipping_fee = fields.Decimal(as_string=True)
+    total_amount = fields.Decimal(as_string=True)
+    order_id = fields.Str()
+    created_at = fields.DateTime()
+    updated_at = fields.DateTime()
+
+class InvoiceItemSchema(Schema):    
+    id = fields.Int()
+    invoices_id = fields.Int()
+    category = fields.Str()
+    sub_category = fields.Str()
+    product_id = fields.Str()
+    item_name = fields.Str()
+    quantity = fields.Int()
+    unit_price = fields.Decimal(as_string=True)
+    amount = fields.Decimal(as_string=True)
+    created_at = fields.DateTime()
+    updated_at = fields.DateTime()
+    
